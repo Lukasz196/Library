@@ -1,3 +1,7 @@
+lib_hello:
+    resource: "@LibHelloBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
