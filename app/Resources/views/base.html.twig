@@ -13,34 +13,57 @@
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/npm.js') }}"></script>
         
+        {# własne skrypty #}
+        <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
+        
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {% block navbar %}            
+            <nav class="navbar navbar-inverse">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">Nasza Biblioteka</a>
+                </div>
+                <div>                  
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span>Zarejestruj</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+        {% endblock %}     
         
-        <div class="container">
-            <div class="jumbotron">
-              <h1>Witaj w naszej bibliotece</h1>      
-              <p>Możesz tutaj wypożyczać książki :)</p>      
-            </div>
+        <div class="container custom_container">
+            {% block header %}
+                <div class="jumbotron">
+                  <h1>Witaj w naszej bibliotece</h1>      
+                  <p>Możesz tutaj wypożyczać książki :)</p>      
+                </div>
+            {% endblock %}
 
             <div class="row">
               <div class="col-md-9">
-                  
+                 
                 {% block content %}{% endblock %}
                 
               </div>
-              <div class="col-md-3">
-                <ul class="nav nav-pills nav-stacked">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Menu 1</a></li>
-                  <li><a href="#">Menu 2</a></li>
-                  <li><a href="#">Menu 3</a></li>
-                </ul>
-              </div>
+                
+              {% block menu %}  
+                <div class="col-md-3">
+                  <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#">Strona główna</a></li>
+                    <li><a href="#">Menu 1</a></li>
+                    <li><a href="#">Menu 2</a></li>
+                    <li><a href="#">Menu 3</a></li>
+                  </ul>
+                </div>
+              {% endblock %}
               <div class="clearfix visible-lg"></div>
             </div>
-          </div>
+        </div>
         
         
         {% block body %}{% endblock %}
