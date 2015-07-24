@@ -1,3 +1,26 @@
+body {
+	background: url(../body-bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .custom_container {
-background: #ededed;
+	padding-right: 0px;
+	padding-left: 0px;
+	background: #ededed;
+	min-height: 1080px;
+}
+
+.custom_navbar{
+	position: fixed;
+    top: 0px;
+    width: 100%;
+	z-index: 9999;
+	margin-bottom: 0px;
+}
+
+.custom_jumbotron {
+	margin-bottom: 2px;
 }
