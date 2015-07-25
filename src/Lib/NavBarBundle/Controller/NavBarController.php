@@ -13,20 +13,14 @@ class NavBarController extends Controller
         $request = $this->get('request');
         $cookies = $request->cookies;
 
+        $navBarOnTop = 'true';
+        
         if ($cookies->has('navBarOnTop'))
         {
             $my_coockie = $cookies->get('navBarOnTop');
             if ($my_coockie == 'true')
             {
                 $navBarOnTop = 'false';
-            }
-            else if($my_coockie == 'false')
-            {
-                $navBarOnTop = 'true';
-            }
-            else
-            {
-                $navBarOnTop = 'empty';
             }
         }        
 
