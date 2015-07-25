@@ -15,13 +15,14 @@ body {
 
 .custom_navbar{	
 	margin-bottom: 0px;
+	z-index: 9999;
+	position: absolute;
+	width: 100%;
 }
 
 .custom_navbar_top {
 	position: fixed;
     top: 0px;
-    width: 100%;
-	z-index: 9999;
 }
 
 .custom_jumbotron {
