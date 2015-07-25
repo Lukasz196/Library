@@ -20,24 +20,35 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block navbar %}            
+        {% block navbar %}                        
+            {% if app.request.cookies.has('navBarOnTop') %}
+                {% set navBarOnTop = app.request.cookies.get('navBarOnTop') %}
+                {% if navBarOnTop == 'true' %}
+            <nav class="custom_navbar_top custom_navbar navbar navbar-inverse">
+                {% else %}
             <nav class="custom_navbar navbar navbar-inverse">
+                {% endif %}                        
+            {% endif %}            
+            
               <div class="container-fluid">
                 <div class="navbar-header">
-                  <a class="navbar-brand" href="#">Nasza Biblioteka</a>
+                  <a class="navbar-brand" href="{{ url('lib_hello_homepage') }}">Nasza Biblioteka</a>
                 </div>
                 {% block navbar_content %}  
                     <div>
                         <ul class="nav navbar-nav">
                           <li><a href="#">Katalog</a></li>
                           <li><a href="#">Kontakt</a></li>
-                          <li><a href="#">O nas</a></li>
+                                                    
+                        
+                                                
                         </ul>
                     </div>
                     <div>                  
                       <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon-user"></span>Zarejestruj</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Zaloguj</a></li>
+                        <li><a href="{{ url('lib_nav_bar_homepage') }}"><span class="glyphicon glyphicon-pushpin"></span></a></li>
                       </ul>
                     </div>
                 {% endblock %} 
@@ -62,9 +73,7 @@
               <div class="clearfix visible-lg"></div>
             </div>
         </div>
-        
-        
-        {% block body %}{% endblock %}
+               
         {% block javascripts %}{% endblock %}
     </body>
 </html>

@@ -1,3 +1,4 @@
 lib_hello_homepage:
     path:     /
     defaults: { _controller: LibHelloBundle:Hello:index }
+    

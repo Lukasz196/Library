@@ -13,12 +13,15 @@ body {
 	min-height: 1080px;
 }
 
-.custom_navbar{
+.custom_navbar{	
+	margin-bottom: 0px;
+}
+
+.custom_navbar_top {
 	position: fixed;
     top: 0px;
     width: 100%;
 	z-index: 9999;
-	margin-bottom: 0px;
 }
 
 .custom_jumbotron {

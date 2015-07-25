@@ -1,6 +1,10 @@
+lib_nav_bar:
+    resource: "@LibNavBarBundle/Resources/config/routing.yml"
+    prefix:   /navbarchange
+
 lib_hello:
     resource: "@LibHelloBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /   
 
 app:
     resource: "@AppBundle/Controller/"
