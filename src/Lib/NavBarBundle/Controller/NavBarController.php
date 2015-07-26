@@ -6,38 +6,25 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Response;
 
-class NavBarController extends Controller
-{
-    public function indexAction()
-    {      
+class NavBarController extends Controller {
+
+    public function isNavBarPinnedAction() {
         $request = $this->get('request');
         $cookies = $request->cookies;
 
         $navBarOnTop = 'true';
-        
-        if ($cookies->has('navBarOnTop'))
-        {
+
+        if ($cookies->has('navBarOnTop')) {
             $my_coockie = $cookies->get('navBarOnTop');
-            if ($my_coockie == 'true')
-            {
+            if ($my_coockie == 'true') {
                 $navBarOnTop = 'false';
             }
-        }        
+        }
 
-        $response = new Response();
-        $response->headers->setCookie(new Cookie('navBarOnTop', $navBarOnTop));
-        //$response->sendHeaders();
-        //$url = $this->generateUrl('lib_hello_homepage',array(), $response);
-        //return $this->redirect($url);
-        
-        
-        //$response = new Response();
-        
-        //$response->headers->setCookie(new Cookie('navBarOnTop', 'true'));
-        
-        //$url = $this->generateUrl('lib_hello_homepage',array(), $response);
+        $response = new Response($navBarOnTop);
+        $response->headers->setCookie(new Cookie('navBarOnTop', $navBarOnTop, time() + (10 * 365 * 24 * 3600)));
+
         return $response;
-        
-        //return $this->render(lib_hello_homepage, array(), $response);
     }
+
 }
