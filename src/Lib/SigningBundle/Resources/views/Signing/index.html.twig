@@ -1,0 +1,67 @@
+{% extends '::base.html.twig' %}
+{% block content %}
+    <div class='row col-md-10 col-md-offset-1'>
+        {{ form_start(form, { 'attr': {'class': 'custom_form_reg form-horizontal col-md-6'} }) }}
+            {{ form_errors(form) }}
+
+            <h1 class='custom_h1_reg'>
+                Rejestracja
+            </h1>
+
+            <div class="form-group">
+                {{ form_label(form.username, 'Login:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-9">
+                    {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.password, 'Hasło:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-9">
+                    {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.firstname, 'Imię:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-9">
+                    {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.lastname, 'Nazwisko:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-9">
+                    {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.phone, 'Nr tel:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-9">
+                    {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.birthdate, 'Data ur:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-9">
+                    {{ form_widget(form.birthdate, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.email, 'E-mail:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-9">
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+                
+        {{ form_row(form.save, { 'label': 'Zapisz się!', 'attr': {'class': 'btn btn-default'}}) }}
+        {{ form_end(form) }}
+
+        <div class='custom_reg_info col-md-6'>
+            <div class='custom_contrast'>
+                <h3 class='custom_h3_reg'>Dlaczego warto się zarejestrować?</h3>
+                Wypożyczaj książki</br>
+                Wystawiaj oceny<br/>
+                Dokonuj rezerwacji
+            </div>
+        </div>
+    </div>
+    {#{ form(form, { 'attr': {'class': 'custom_form_reg'} }) }#} 
+{% endblock %}

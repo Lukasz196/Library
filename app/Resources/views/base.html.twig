@@ -45,7 +45,7 @@
                 </div>
                 <div>                  
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp Zarejestruj</a></li>
+                        <li><a href="{{ url('lib_register') }}"><span class="glyphicon glyphicon-user"></span>&nbsp Zarejestruj</a></li>
                         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>&nbsp Zaloguj</a></li>
                         <li><a id="navBarPin" href="{{ url('lib_nav_bar_homepage') }}"><span class="glyphicon glyphicon-pushpin"></span></a></li>
                     </ul>
@@ -63,12 +63,8 @@
         </div>
     {% endblock %}
 
-    <div class="row">
-        <div>
-
-        {% block content %}{% endblock %}
-
-        </div>               
+    <div class=" custom_content row">
+        {% block content %}{% endblock %}              
         <div class="clearfix visible-lg"></div>
     </div>
 </div>
