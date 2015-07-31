@@ -1,4 +1,10 @@
 {% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/SigningBundle/custom.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}" />
+{% endblock %}
+
 {% block content %}
     <div class='row col-md-10 col-md-offset-1'>
         {{ form_start(form, { 'attr': {'class': 'custom_form_reg form-horizontal col-md-6'} }) }}
@@ -18,6 +24,7 @@
                 {{ form_label(form.password, 'Hasło:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                 <div class="col-sm-9">
                     {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+                    <span id="passstrength"></span>
                 </div>
             </div>
             <div class="form-group">
@@ -39,9 +46,15 @@
                 </div>
             </div>
             <div class="form-group">
-                {{ form_label(form.birthdate, 'Data ur:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                {{ form_label(form.pesel, 'PESEL:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                 <div class="col-sm-9">
-                    {{ form_widget(form.birthdate, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(form.pesel, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.mydate, 'Data ur:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-9">
+                    {{ form_widget(form.mydate, {'attr': {'class': 'form-control'}}) }}
                 </div>
             </div>
             <div class="form-group">
@@ -51,7 +64,7 @@
                 </div>
             </div>
                 
-        {{ form_row(form.save, { 'label': 'Zapisz się!', 'attr': {'class': 'btn btn-default'}}) }}
+            {{ form_row(form.save, { 'label': 'Zapisz się!', 'attr': {'class': 'btn btn-default'}}) }}
         {{ form_end(form) }}
 
         <div class='custom_reg_info col-md-6'>
@@ -62,6 +75,11 @@
                 Dokonuj rezerwacji
             </div>
         </div>
-    </div>
-    {#{ form(form, { 'attr': {'class': 'custom_form_reg'} }) }#} 
+    </div>            
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/SigningBundle/run-datepicker.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/SigningBundle/validation.js') }}"></script>
 {% endblock %}
