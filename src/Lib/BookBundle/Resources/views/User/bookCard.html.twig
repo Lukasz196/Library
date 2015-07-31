@@ -1,0 +1,102 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/BookBundle/bookCard.css') }}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="page-header">
+        {{ book.title }}
+    </h1>
+    <div class="row">
+        <img class="col-lg-3" src="{{ asset('graphics/covers/') }}{{ book.cover }}">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-3 col-xs-4">
+                    {% if book.authors|length > 1 %}Autorzy:{% else %}Autor:{% endif %} 
+                </div>
+                <div class="col-sm-9 col-xs-8">
+                    {% for author in book.authors %}
+                        {{ author.firstname }} {{ author.secondname }} {{ author.lastname }}{% if loop.length > 1 and loop.last != true%}, {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-4">
+                    Gatunek:
+                </div>
+                <div class="col-sm-9 col-xs-8">
+                    {% for genre in book.genres %}
+                        {{ genre.name }}{% if loop.length > 1 and loop.last != true%}, {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-4">
+                    Wydawnictwo:
+                </div>
+                <div class="col-sm-9 col-xs-8 col-xs-8">
+                        {{ book.publisher.name }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-4">
+                    Miejsce wydania:
+                </div>
+                <div class="col-sm-9 col-xs-8">
+                        {{ book.publishPlace }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-4">
+                    Rok wydania:
+                </div>
+                <div class="col-sm-9 col-xs-8">
+                        {{ book.publishYear }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-4">
+                    ISBN:
+                </div>
+                <div class="col-sm-9 col-xs-8">
+                        {{ book.isbn }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-4">
+                    Liczba stron:
+                </div>
+                <div class="col-sm-9 col-xs-8">
+                        {{ book.paperback }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-4">
+                    Język:
+                </div>
+                <div class="col-sm-9 col-xs-8">
+                        {{ book.language }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-4">
+                    Dostępna:
+                </div>
+                <div class="col-sm-9 col-xs-8">
+                        {% if book.amount > 0 %}tak{% else %}nie{% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-4">
+                    <a class="btn btn-info reserve-button">Zarezerwuj</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 description">
+                        {{ book.description }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

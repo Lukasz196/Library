@@ -103,7 +103,7 @@ use Doctrine\ORM\Mapping as ORM;
      }
      
       /**
-      * @ORM\Column(type="decimal", scale=10)
+      * @ORM\Column(type="string", length=12)
       */
      protected $phone;
      
@@ -118,7 +118,7 @@ use Doctrine\ORM\Mapping as ORM;
      }
      
      /**
-      * @ORM\Column(type="decimal", scale=11)
+      * @ORM\Column(type="decimal", precision=11, scale=0)
       */
      protected $pesel;
      

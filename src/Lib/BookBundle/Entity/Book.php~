@@ -56,6 +56,16 @@ class Book
     private $amount;
     
     /**
+     * @ORM\Column(name="cover", type="string", length=255, nullable=true)
+     */
+    private $cover;
+    
+    /**
+     * @ORM\Column(name="decscription", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
      * @ORM\Column(name="idPublisher", type="integer", nullable=false)
      */
     private $idPublisher;
@@ -345,5 +355,71 @@ class Book
     public function getGenres()
     {
         return $this->genres;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Add authors
+     *
+     * @param \Lib\BookBundle\Entity\Author $authors
+     * @return Book
+     */
+    public function addAuthor(\Lib\BookBundle\Entity\Author $authors)
+    {
+        $this->authors[] = $authors;
+
+        return $this;
+    }
+
+    /**
+     * Remove authors
+     *
+     * @param \Lib\BookBundle\Entity\Author $authors
+     */
+    public function removeAuthor(\Lib\BookBundle\Entity\Author $authors)
+    {
+        $this->authors->removeElement($authors);
+    }
+
+    /**
+     * Get authors
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAuthors()
+    {
+        return $this->authors;
+    }
+
+    /**
+     * Set cover
+     *
+     * @param string $cover
+     * @return Book
+     */
+    public function setCover($cover)
+    {
+        $this->cover = $cover;
+
+        return $this;
+    }
+
+    /**
+     * Get cover
+     *
+     * @return string 
+     */
+    public function getCover()
+    {
+        return $this->cover;
     }
 }

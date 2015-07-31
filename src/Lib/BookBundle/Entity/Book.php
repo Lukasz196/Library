@@ -56,6 +56,16 @@ class Book
     private $amount;
     
     /**
+     * @ORM\Column(name="cover", type="string", length=255, nullable=true)
+     */
+    private $cover;
+    
+    /**
+     * @ORM\Column(name="decscription", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
      * @ORM\Column(name="idPublisher", type="integer", nullable=false)
      */
     private $idPublisher;
@@ -388,5 +398,51 @@ class Book
     public function getAuthors()
     {
         return $this->authors;
+    }
+
+    /**
+     * Set cover
+     *
+     * @param string $cover
+     * @return Book
+     */
+    public function setCover($cover)
+    {
+        $this->cover = $cover;
+
+        return $this;
+    }
+
+    /**
+     * Get cover
+     *
+     * @return string 
+     */
+    public function getCover()
+    {
+        return $this->cover;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Book
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }
