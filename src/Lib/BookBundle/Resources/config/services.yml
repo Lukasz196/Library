@@ -1,0 +1,4 @@
+services:
+#    lib_book.example:
+#        class: Lib\BookBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

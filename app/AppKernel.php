@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Lib\HelloBundle\LibHelloBundle(),
             new Lib\NavBarBundle\LibNavBarBundle(),
+            new Lib\BookBundle\LibBookBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

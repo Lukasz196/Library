@@ -1,0 +1,3 @@
+lib_book_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: LibBookBundle:Default:index }
