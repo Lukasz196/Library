@@ -6,6 +6,11 @@
             <file>file:/D:/XAMPP/htdocs/Library/app/config/parameters.yml</file>
             <file>file:/D:/XAMPP/htdocs/Library/src/Lib/BookBundle/Entity/Book.php</file>
             <file>file:/D:/XAMPP/htdocs/Library/src/Lib/BookBundle/Entity/Genre.php</file>
+            <file>file:/C:/xampp/htdocs/Library/src/Lib/SigningBundle/Controller/SigningController.php</file>
+            <file>file:/C:/xampp/htdocs/Library/src/Lib/SigningBundle/Form/Type/UserType.php</file>
+            <file>file:/C:/xampp/htdocs/Library/app/Resources/views/base.html.twig</file>
+            <file>file:/C:/xampp/htdocs/Library/src/Lib/SigningBundle/Resources/views/Signing/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/Library/src/Lib/SigningBundle/Entity/User.php</file>
         </group>
     </open-files>
 </project-private>

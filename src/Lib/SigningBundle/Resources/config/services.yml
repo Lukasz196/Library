@@ -1,0 +1,4 @@
+services:
+#    lib_signing.example:
+#        class: Lib\SigningBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
