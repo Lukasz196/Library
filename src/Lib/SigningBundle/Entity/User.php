@@ -4,18 +4,11 @@ namespace Lib\SigningBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
- /**
-  * @ORM\Entity
-  * @ORM\Table(name="user")
-  */
- class User
- {
-     /**
-      * @ORM\Id
-      * @ORM\Column(type="integer")
-      * @ORM\GeneratedValue(strategy="AUTO")
-      */
-     protected $id;
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="user")
+ */
+class User {
 
      public function getId()
      {
@@ -28,7 +21,7 @@ use Doctrine\ORM\Mapping as ORM;
      }
      
      /**
-      * @ORM\Column(type="text", length=50)
+      * @ORM\Column(type="string", length=25)
       */
      protected $username;    
      
@@ -42,8 +35,8 @@ use Doctrine\ORM\Mapping as ORM;
          $this->username = $username;
      }
 
-          /**
-      * @ORM\Column(type="text", length=20)
+      /**
+      * @ORM\Column(type="string", length=20)
       */
      protected $password;
      
@@ -88,7 +81,7 @@ use Doctrine\ORM\Mapping as ORM;
      }
      
      /**
-      * @ORM\Column(type="string", length=20)
+      * @ORM\Column(type="string", length=45)
       */
      protected $lastname;
      
@@ -103,7 +96,8 @@ use Doctrine\ORM\Mapping as ORM;
      }
      
       /**
-      * @ORM\Column(type="string", length=12)
+
+      * @ORM\Column(type="integer", scale=20)
       */
      protected $phone;
      
@@ -118,7 +112,7 @@ use Doctrine\ORM\Mapping as ORM;
      }
      
      /**
-      * @ORM\Column(type="decimal", precision=11, scale=0)
+      * @ORM\Column(type="integer", scale=11)
       */
      protected $pesel;
      
@@ -131,6 +125,8 @@ use Doctrine\ORM\Mapping as ORM;
      {
          $this->pesel = $pesel;
      }
+     
+     public $mydate;
      
      /**
       * @ORM\Column(type="date")
@@ -178,7 +174,7 @@ use Doctrine\ORM\Mapping as ORM;
      }
      
      /**
-      * @ORM\Column(type="integer")
+      * @ORM\Column(type="integer", nullable=true)
       */
      protected $idAddress;
      
@@ -190,5 +186,5 @@ use Doctrine\ORM\Mapping as ORM;
      public function setIdAddress($idAddress)
      {
          $this->idAddress = $idAddress;
-     }
+     }     
  }

@@ -1,3 +1,10 @@
 userShowBookCard:
     path:     /book/{bookId}
     defaults: { _controller: LibBookBundle:Book:showBookCard }
+librarianAddBook:
+    path:     /librarian/addBook
+    defaults: { _controller: LibBookBundle:Book:addBook }
+    
+librarianAddGenre:
+    path:   /librarian/addGenre
+    defaults:   {_controller: LibBookBundle:Book:addGenre}
