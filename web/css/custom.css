@@ -32,37 +32,3 @@ body {
 .custom_content {
 	margin: 0px 0px;
 }
-
-.custom_form_reg {
-	margin-top: 10px;
-	margin-left: 8,3333%;
-}
-
-.custom_form_reg label {
-	text-align: right;
-}
-
-.custom_h1_reg {
-	margin-left: 16.6667%;
-	margin-bottom: 15px;
-}
-
-.custom_h3_reg{
-	margin-top: 5px;
-}
-
-.custom_reg_info {
-	border-left: 1px solid gray;
-	margin-top: 150px;
-	margin-left: 0,83333%;	
-}
-
-.custom_contrast{
-	padding: 10px;
-	background: #FFF none repeat scroll 0% 0%;
-	line-height: 1.5em;
-	color: #333;
-	vertical-align: baseline;
-	border-radius: 5px;
-	border: 1px solid #B8B7B7;
-}
