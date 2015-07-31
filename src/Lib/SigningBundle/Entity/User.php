@@ -103,7 +103,7 @@ class User {
      
       /**
 
-      * @ORM\Column(type="integer", scale=20)
+      * @ORM\Column(type="string", scale=20)
       */
      protected $phone;
      
