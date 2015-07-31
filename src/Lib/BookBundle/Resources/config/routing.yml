@@ -1,3 +1,7 @@
-lib_book_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: LibBookBundle:Default:index }
+librarianAddBook:
+    path:     /librarian/addBook
+    defaults: { _controller: LibBookBundle:Book:addBook }
+    
+librarianAddGenre:
+    path:   /librarian/addGenre
+    defaults:   {_controller: LibBookBundle:Book:addGenre}
