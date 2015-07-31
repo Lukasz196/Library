@@ -17,50 +17,112 @@
             <div class="form-group">
                 {{ form_label(form.username, 'Login:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                 <div class="col-sm-9">
-                    {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(form.username, {'attr': {
+                        'class': 'form-control',
+                        'data-msg-minlength': 'Login musi posiadać co najmniej 8 znaków',
+                        'data-msg-maxlength': 'Login może posiadać maksymalnie 25 znaków',
+                        'data-msg-required': 'Pole Login jest wymagane',
+                        'data-rule-minlength': '8',
+                        'data-rule-maxlength': '25',
+                        'data-rule-required': 'true' 
+                    }}) }}
                 </div>
             </div>
             <div class="form-group">
                 {{ form_label(form.password, 'Hasło:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                 <div class="col-sm-9">
-                    {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(form.password, {'attr': {
+                        'class': 'form-control',
+                        'data-msg-minlength': 'Hasło musi posiadać co najmniej 8 znaków',
+                        'data-msg-maxlength': 'Hasło może posiadać maksymalnie 20 znaków',
+                        'data-msg-required': 'Pole Hasło jest wymagane',
+                        'data-rule-minlength': '8',
+                        'data-rule-maxlength': '20',
+                        'data-rule-required': 'true'                     
+                    }}) }}
                     <span id="passstrength"></span>
                 </div>
             </div>
             <div class="form-group">
                 {{ form_label(form.firstname, 'Imię:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                 <div class="col-sm-9">
-                    {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(form.firstname, {'attr': {
+                        'class': 'form-control',
+                        'data-msg-minlength': 'Imię musi posiadać co najmniej 3 znaki',
+                        'data-msg-maxlength': 'Imię może posiadać maksymalnie 20 znaków',
+                        'data-msg-required': 'Pole Imię jest wymagane',
+                        'data-rule-minlength': '3',
+                        'data-rule-maxlength': '20',
+                        'data-rule-required': 'true'                      
+                    }}) }}
                 </div>
             </div>
             <div class="form-group">
                 {{ form_label(form.lastname, 'Nazwisko:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                 <div class="col-sm-9">
-                    {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(form.lastname, {'attr': {
+                        'class': 'form-control',
+                        'data-msg-minlength': 'Nazwisko musi posiadać co najmniej 3 znaki',
+                        'data-msg-maxlength': 'Nazwisko może posiadać maksymalnie 45 znaków',
+                        'data-msg-required': 'Pole Nazwisko jest wymagane',
+                        'data-rule-minlength': '3',
+                        'data-rule-maxlength': '45',
+                        'data-rule-required': 'true'                    
+                    }}) }}
                 </div>
             </div>
             <div class="form-group">
                 {{ form_label(form.phone, 'Nr tel:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                 <div class="col-sm-9">
-                    {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(form.phone, {'attr': {
+                        'class': 'form-control',
+                        'data-msg-minlength': 'Numer telefonu musi posiadać co najmniej 9 znaków',
+                        'data-msg-maxlength': 'Numer telefonu może posiadać maksymalnie 20 znaków',
+                        'data-msg-required': 'Pole Numer telefonu jest wymagane',
+                        'data-rule-minlength': '9',
+                        'data-rule-maxlength': '20',
+                        'data-rule-required': 'true'  
+                    }}) }}
                 </div>
             </div>
             <div class="form-group">
                 {{ form_label(form.pesel, 'PESEL:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                 <div class="col-sm-9">
-                    {{ form_widget(form.pesel, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(form.pesel, {'attr': {
+                        'class': 'form-control',
+                        'data-msg-number': 'PESEL może zawierać wyłącznie cyfry',
+                        'data-msg-minlength': 'PESEL powinien posiadać 11 znaków',
+                        'data-msg-maxlength': 'PESEL powinien posiadać 11 znaków',
+                        'data-msg-required': 'Pole PESEL jest wymagane',
+                        'data-rule-minlength': '11',
+                        'data-rule-maxlength': '11',
+                        'data-rule-number': 'true',
+                        'data-rule-required': 'true'
+                    }}) }}
                 </div>
             </div>
             <div class="form-group">
                 {{ form_label(form.mydate, 'Data ur:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                 <div class="col-sm-9">
-                    {{ form_widget(form.mydate, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(form.mydate, {'attr': {
+                        'class': 'form-control',
+                        'data-msg-date': 'Niepoprawny formaty daty',
+                        'data-msg-required': 'Pole Data jest wymagane',
+                        'data-rule-date': 'true',
+                        'data-rule-required': 'true' 
+                    }}) }}
                 </div>
             </div>
             <div class="form-group">
                 {{ form_label(form.email, 'E-mail:', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                 <div class="col-sm-9">
-                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(form.email, {'attr': {
+                        'class': 'form-control',
+                        'data-msg-email': 'Niepoprawny formaty maila',
+                        'data-msg-required': 'Pole E-mail jest wymagane',
+                        'data-rule-email': 'true',
+                        'data-rule-required': 'true' 
+                    }}) }}
                 </div>
             </div>
                 
@@ -78,7 +140,8 @@
     </div>            
 {% endblock %}
 
-{% block javascripts %}
+{% block javascripts %}        
+    <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/SigningBundle/run-datepicker.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/SigningBundle/validation.js') }}"></script>

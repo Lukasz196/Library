@@ -3,6 +3,11 @@
 	margin-left: 8,3333%;
 }
 
+.custom_form_reg .error {
+	border: 1px solid #b94a48!important; 
+	background-color: #fee!important; 
+}
+
 .custom_form_reg label {
 	text-align: right;
 }

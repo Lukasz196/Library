@@ -88,7 +88,7 @@ use Doctrine\ORM\Mapping as ORM;
      }
      
      /**
-      * @ORM\Column(type="string", length=20)
+      * @ORM\Column(type="string", length=45)
       */
      protected $lastname;
      
@@ -103,7 +103,7 @@ use Doctrine\ORM\Mapping as ORM;
      }
      
       /**
-      * @ORM\Column(type="text", scale=10)
+      * @ORM\Column(type="integer", scale=20)
       */
      protected $phone;
      
