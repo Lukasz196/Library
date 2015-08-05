@@ -1,10 +1,9 @@
+user_bundle:
+    resource: "@LibSigningBundle/Resources/config/routing.yml"
+
 lib_book:
     resource: "@LibBookBundle/Resources/config/routing.yml"
     prefix:   /
-
-lib_signing:
-    resource: "@LibSigningBundle/Resources/config/routing.yml"
-    prefix:   /user
 
 lib_nav_bar:
     resource: "@LibNavBarBundle/Resources/config/routing.yml"
