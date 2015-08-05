@@ -120,22 +120,7 @@ class User extends BaseUser
          
          $this->birthdate = new \DateTime($newformat);
      }     
-     
-     /**
-      * @ORM\Column(type="integer", nullable=true)
-      */
-     protected $idRole=1;
-
-     public function getIdRole()
-     {
-         return $this -> idRole;
-     }
-     
-     public function setIdRole($idRole)
-     {
-         $this->idRole = $idRole;
-     }
-     
+          
      /**
       * @ORM\Column(type="integer", nullable=true)
       */
