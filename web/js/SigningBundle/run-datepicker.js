@@ -1,4 +1,4 @@
 $(document).ready(function ()
-{
-   $("#user_mydate").datepicker({ autoclose: true, todayHighlight: true});
+{   
+   $("#fos_user_registration_form_birthdate").datepicker({ autoclose: true, todayHighlight: true});
 });

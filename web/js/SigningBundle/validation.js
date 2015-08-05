@@ -23,7 +23,7 @@ $(document).ready(function ()
 	});
 	
 	
-   $('#user_password').keyup(function(e){
+   $('#fos_user_registration_form_plainPassword_first').keyup(function(e){
 		 var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
 		 var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
 		 var enoughRegex = new RegExp("(?=.{8,}).*", "g");
