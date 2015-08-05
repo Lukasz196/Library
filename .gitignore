@@ -12,3 +12,5 @@
 /composer.phar
 /nbproject/*
 /nbproject/private/*
+/nbproject/
+/nbproject/private/private.xml

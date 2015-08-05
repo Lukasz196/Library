@@ -3,26 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="PHP">
-            <file>file:/J:/XAMPP/htdocs/Library/src/Lib/BookBundle/Resources/config/routing.yml</file>
-            <file>file:/J:/XAMPP/htdocs/Library/src/Lib/BookBundle/Resources/views/Librarian/addGenre.html.twig</file>
-            <file>file:/J:/XAMPP/htdocs/Library/src/Lib/BookBundle/Entity/Genre.php</file>
-            <file>file:/J:/XAMPP/htdocs/Library/app/config/parameters.yml</file>
-            <file>file:/J:/XAMPP/htdocs/Library/src/Lib/SigningBundle/Form/Type/UserType.php</file>
-            <file>file:/J:/XAMPP/htdocs/Library/src/Lib/SigningBundle/Controller/SigningController.php</file>
-            <file>file:/J:/XAMPP/htdocs/Library/src/Lib/BookBundle/Entity/Book.php</file>
-            <file>file:/J:/XAMPP/htdocs/Library/src/Lib/BookBundle/Resources/views/Librarian/addBook.html.twig</file>
-            <file>file:/J:/XAMPP/htdocs/Library/src/Lib/SigningBundle/Resources/views/Signing/index.html.twig</file>
-            <file>file:/J:/XAMPP/htdocs/Library/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form/bootstrap_3_horizontal_layout.html.twig</file>
-            <file>file:/J:/XAMPP/htdocs/Library/src/Lib/BookBundle/Resources/views/themes/bootstrapForm.html.twig</file>
             <file>file:/J:/XAMPP/htdocs/Library/src/Lib/BookBundle/Controller/BookController.php</file>
-            <file>file:/J:/XAMPP/htdocs/Library/src/Lib/BookBundle/Form/Type/GenreType.php</file>
         </group>
-        <group>
-            <file>file:/C:/xampp/htdocs/Library/src/Lib/SigningBundle/Resources/views/Registration/email.txt.twig</file>
-            <file>file:/C:/xampp/htdocs/Library/src/Lib/SigningBundle/Form/Type/RegistrationType.php</file>
-            <file>file:/C:/xampp/htdocs/Library/src/Lib/SigningBundle/Resources/views/Registration/confirmed.html.twig</file>
-            <file>file:/C:/xampp/htdocs/Library/src/Lib/SigningBundle/Resources/views/Registration/checkEmail.html.twig</file>
-            <file>file:/C:/xampp/htdocs/Library/app/config/config.yml</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
