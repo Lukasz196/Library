@@ -3,12 +3,14 @@
 namespace Lib\SigningBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Table(name="fos_user")
  */
-class User {
+class User extends BaseUser
+{
     /**
       * @ORM\Id
       * @ORM\Column(type="integer")
@@ -26,40 +28,10 @@ class User {
          $this->id = $id;
      }
      
-     /**
-      * @ORM\Column(type="string", length=25)
+          /**
+      * @ORM\Column(type="boolean", nullable=true)
       */
-     protected $username;    
-     
-     public function getUsername()
-     {
-         return $this -> username;
-     }
-     
-     public function setUsername($username)
-     {
-         $this->username = $username;
-     }
-
-      /**
-      * @ORM\Column(type="string", length=20)
-      */
-     protected $password;
-     
-     public function getPassword()
-     {
-         return $this -> password;
-     }
-     
-     public function setPassword($password)
-     {
-         $this->password = $password;
-     }
-     
-     /**
-      * @ORM\Column(type="boolean")
-      */
-     protected $active;
+     protected $active = true;
      
      public function getActive()
      {
@@ -102,8 +74,7 @@ class User {
      }
      
       /**
-
-      * @ORM\Column(type="integer", scale=20)
+      * @ORM\Column(type="string", scale=20)
       */
      protected $phone;
      
@@ -131,9 +102,7 @@ class User {
      {
          $this->pesel = $pesel;
      }
-     
-     public $mydate;
-     
+         
      /**
       * @ORM\Column(type="date")
       */
@@ -146,39 +115,12 @@ class User {
      
      public function setBirthdate($birthdate)
      {
-         $this->birthdate = $birthdate;
-     }
-     
-     /**
-      * @ORM\Column(type="string", length=35)
-      */
-     protected $email;
-     
-     public function getEmail()
-     {
-         return $this -> email;
-     }
-     
-     public function setEmail($email)
-     {
-         $this->email = $email;
-     }
-     
-     /**
-      * @ORM\Column(type="integer")
-      */
-     protected $idRole;
-
-     public function getIdRole()
-     {
-         return $this -> idRole;
-     }
-     
-     public function setIdRole($idRole)
-     {
-         $this->idRole = $idRole;
-     }
-     
+         $time = strtotime($birthdate);
+         $newformat = date('Y-m-d', $time);
+         
+         $this->birthdate = new \DateTime($newformat);
+     }     
+          
      /**
       * @ORM\Column(type="integer", nullable=true)
       */
@@ -192,5 +134,10 @@ class User {
      public function setIdAddress($idAddress)
      {
          $this->idAddress = $idAddress;
-     }     
- }
+     }
+
+    public function __constructconstruct() 
+    {
+        parent::__construct();               
+    }
+}
