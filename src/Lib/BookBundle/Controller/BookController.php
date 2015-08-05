@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 namespace Lib\BookBundle\Controller;
 
@@ -43,7 +43,7 @@ public function showBookCardAction($bookId) {
                 ->find($bookId);
 
         if (!$book) {
-            throw $this->createNotFoundException('Wskazana ksi¹¿ka nie istnieje');
+            throw $this->createNotFoundException('Wskazana ksiÄ…Å¼ka nie istnieje');
         } else {
             return $this->render('LibBookBundle:User:bookCard.html.twig', array('book' => $book));
         }
