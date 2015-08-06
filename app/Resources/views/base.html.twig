@@ -43,31 +43,42 @@
 
                     </ul>
                 </div>
-                <div>                  
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ url('fos_user_registration_register') }}"><span class="glyphicon glyphicon-user"></span>&nbsp Zarejestruj</a></li>
-                        <li><a href="{{ url('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp Zaloguj</a></li>
-                        <li><a id="navBarPin" href="{{ url('lib_nav_bar_homepage') }}"><span class="glyphicon glyphicon-pushpin"></span></a></li>
-                    </ul>
-                </div>
+                
+                {% if app.user %} {# użytkownik zalogowany #}
+                    <div>                  
+                        <ul class="nav navbar-nav navbar-right">                            
+                            <li><a href="{{ url('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp Wyloguj</a></li>
+                            <li><a id="navBarPin" href="{{ url('lib_nav_bar_homepage') }}"><span class="glyphicon glyphicon-pushpin"></span></a></li>
+                        </ul>
+                    </div>
+                {% else %} {# użytkownik niezalogowany #}
+                    <div>                  
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{{ url('fos_user_registration_register') }}"><span class="glyphicon glyphicon-user"></span>&nbsp Zarejestruj</a></li>
+                            <li><a href="{{ url('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp Zaloguj</a></li>
+                            <li><a id="navBarPin" href="{{ url('lib_nav_bar_homepage') }}"><span class="glyphicon glyphicon-pushpin"></span></a></li>
+                        </ul>
+                    </div>
+                {% endif %}
             {% endblock %} 
         </div>
     </nav>
 {% endblock %}     
 
-<div class="custom_container container">
-    {% block header %}
-        <div class="custom_jumbotron jumbotron">
-            <h1>Witaj w naszej bibliotece</h1>      
-            <p>Możesz tutaj wypożyczać książki :)</p>      
-        </div>
-    {% endblock %}
+{% block body %}
+    <div class="custom_container container">
+        {% block header %}
+            <div class="custom_jumbotron jumbotron">
+                <h1>Witaj w naszej bibliotece</h1>      
+                <p>Możesz tutaj wypożyczać książki :)</p>      
+            </div>
+        {% endblock %}
 
-    <div class="container">
-        {% block content %}{% endblock %}              
-        <div class="clearfix visible-lg"></div>
+        <div class="container">
+            {% block content %}{% endblock %}      
+        </div>
     </div>
-</div>
+{% endblock %}
 
 <script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>

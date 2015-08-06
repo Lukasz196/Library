@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/SigningBundle/login.css') }}" />    
+{% endblock %}
+
+{% block content %}   
+    <div class="col-lg-8 col-lg-offset-2 relative-div">
+        <div class="wrapper">
+            <div class="login-container">
+                    <h1>Witaj w naszej bibliotece</h1>
+
+                    <form action="{{ path("fos_user_security_check") }}" method="post" class="form">
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                            <input type="text" class="login-input" id="username" name="_username" required="required" placeholder="Login" />
+                            <input type="password" class="login-input" id="password" name="_password" required="required" placeholder="Hasło" />
+                            
+                            <div class="login-options">
+                                <input class="login-checkbox" type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                <label class="login-checkbox" for="remember_me">&nbsp {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                                <a class="login-remind" href="{{ path('fos_user_resetting_request') }}">Przypomnij</a>
+                            </div>
+
+                            <input type="submit" id="_submit" class="login-button" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />                        
+                    </form>
+            </div>
+
+            <ul class="bg-bubbles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}        
+    <script type="text/javascript" src="{{ asset('js/SigningBundle/login.js') }}"></script>
+{% endblock %}
