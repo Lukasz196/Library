@@ -1,0 +1,36 @@
+<div class="list-group">
+    {% for book in books %}
+        <a href="{{ path('userShowBookCard', {'bookId': book.id}) }}" class="{{ columnSize }} list-group-item">
+            <div class="row">
+                <div class="col-xs-3">
+                    {#<img style="width: 100%" src="{{ asset('graphics/covers/') }}/{{ book.cover }}">#}
+                    <div style="height: 175px;background: no-repeat; background-image: url({{ asset('graphics/covers/') }}/{{ book.cover }}); background-size: contain"></div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="list-group-item-heading">{{ book.title }}</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {#{ book.authors[0].firstname }} {{ book.authors[0].secondname }} {{ book.authors[0].lastname }#}
+                            {% for author in book.authors %}
+                                {{ author.firstname }} {{ author.secondname }} {{ author.lastname }}{% if loop.length > 1 and loop.last != true%}, {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">Wydawnictwo {{ book.publisher.name }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">ISBN {{ book.isbn }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">{{ book.publishPlace }} {{ book.publishYear }}</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>

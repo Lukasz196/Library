@@ -16,3 +16,7 @@ librarianAddPublisher:
 librarianAddAuthor:
     path:   /librarian/addAuthor
     defaults:   {_controller: LibBookBundle:Book:addAuthor}
+
+catalog:
+    path: /catalog
+    defaults: { _controller: LibBookBundle:Book:showCatalog }
