@@ -12,6 +12,8 @@
 
         {# własne arkusze #}
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/SigningBundle/login-popup.css') }}" />   
+        <link rel="stylesheet" href="{{ asset('css/SigningBundle/login.css') }}" />
 
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -55,7 +57,7 @@
                     <div>                  
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="{{ url('fos_user_registration_register') }}"><span class="glyphicon glyphicon-user"></span>&nbsp Zarejestruj</a></li>
-                            <li><a href="{{ url('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp Zaloguj</a></li>
+                            <li><a href="#login-box" class="login-window"><span class="glyphicon glyphicon-log-in"></span>&nbsp Zaloguj</a></li>
                             <li><a id="navBarPin" href="{{ url('lib_nav_bar_homepage') }}"><span class="glyphicon glyphicon-pushpin"></span></a></li>
                         </ul>
                     </div>
@@ -78,6 +80,42 @@
             {% block content %}{% endblock %}      
         </div>
     </div>
+            
+        <div id="login-box" class="login-popup">
+            <div class="wrapper">
+                <div class="login-container">
+                        <h1>Witaj w naszej bibliotece</h1>
+
+                        <form action="{{ path("fos_user_security_check") }}" method="post" class="form">
+                                
+                                <input type="text" class="login-input" id="username" name="_username" required="required" placeholder="Login" />
+                                <input type="password" class="login-input" id="password" name="_password" required="required" placeholder="Hasło" />
+
+                                <div class="login-options">
+                                    <input class="login-checkbox" type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                    <label class="login-checkbox" for="remember_me">&nbsp {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                                    <a class="login-remind" href="{{ path('fos_user_resetting_request') }}">Przypomnij</a>
+                                </div>
+                                <div class="login-submit">
+                                    <input type="submit" id="_submit" class="login-button" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />                        
+                                </div>
+                        </form>
+                </div>
+
+                <ul class="bg-bubbles">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                </ul>
+            </div>
+        </div>        
 {% endblock %}
 
 <script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
@@ -85,6 +123,9 @@
 <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/npm.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/NavBarBundle/pin.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('js/SigningBundle/login.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/SigningBundle/login-popup.js') }}"></script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>
