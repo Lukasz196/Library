@@ -9,25 +9,25 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Entity
  * @ORM\Table(name="Publisher")
  */
-class Publisher
-{
+class Publisher {
+
     /**
      * @ORM\Column(name="idPublisher", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idPublisher;
-    
+
     /**
      * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="Book", mappedBy="publisher")
      */
     private $books;
-    
+
     public function __construct() {
         $this->books = new ArrayCollection();
     }
@@ -38,8 +38,7 @@ class Publisher
      * @param integer $idPublisher
      * @return Publisher
      */
-    public function setIdPublisher($idPublisher)
-    {
+    public function setIdPublisher($idPublisher) {
         $this->idPublisher = $idPublisher;
 
         return $this;
@@ -50,8 +49,7 @@ class Publisher
      *
      * @return integer 
      */
-    public function getIdPublisher()
-    {
+    public function getIdPublisher() {
         return $this->idPublisher;
     }
 
@@ -61,8 +59,7 @@ class Publisher
      * @param string $name
      * @return Publisher
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -73,8 +70,7 @@ class Publisher
      *
      * @return string 
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -84,8 +80,7 @@ class Publisher
      * @param \Lib\BookBundle\Entity\Book $books
      * @return Publisher
      */
-    public function addBook(\Lib\BookBundle\Entity\Book $books)
-    {
+    public function addBook(\Lib\BookBundle\Entity\Book $books) {
         $this->books[] = $books;
 
         return $this;
@@ -96,8 +91,7 @@ class Publisher
      *
      * @param \Lib\BookBundle\Entity\Book $books
      */
-    public function removeBook(\Lib\BookBundle\Entity\Book $books)
-    {
+    public function removeBook(\Lib\BookBundle\Entity\Book $books) {
         $this->books->removeElement($books);
     }
 
@@ -106,8 +100,12 @@ class Publisher
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getBooks()
-    {
+    public function getBooks() {
         return $this->books;
     }
+
+    public function __toString() {
+        return $this->name;
+    }
+
 }

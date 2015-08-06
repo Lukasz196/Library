@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}" />
 
+
         {# własne arkusze #}
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
 
@@ -22,58 +23,65 @@
             {% set navBarOnTop = app.request.cookies.get('navBarOnTop') %}
             {% if navBarOnTop == 'true' %}
                 <nav id="navBar" class="custom_navbar_top custom_navbar navbar navbar-inverse" >
-            {% else %}
-                <nav id="navBar" class="custom_navbar navbar navbar-inverse" >
-            {% endif %} 
-        {% else %}
-            <nav id="navBar" class="custom_navbar_top custom_navbar navbar navbar-inverse" >
-        {% endif %}            
+                {% else %}
+                    <nav id="navBar" class="custom_navbar navbar navbar-inverse" >
+                    {% endif %} 
+                {% else %}
+                    <nav id="navBar" class="custom_navbar_top custom_navbar navbar navbar-inverse" >
+                    {% endif %}            
 
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="{{ url('lib_hello_homepage') }}">Nasza Biblioteka</a>
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="{{ url('lib_hello_homepage') }}">Nasza Biblioteka</a>
+                        </div>
+                        {% block navbar_content %}  
+                            <div>
+                                <ul class="nav navbar-nav">
+                                    <li><a href="#">Katalog</a></li>
+                                    <li><a href="#">Kontakt</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dodaj <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{{ url('librarianAddGenre') }}">gatunek</a></li>
+                                            <li><a href="{{ url('librarianAddPublisher') }}">wydawcę</a></li>
+                                            <li><a href="{{ url('librarianAddAuthor') }}">autora</a></li>
+                                            <li><a href="{{ url('librarianAddBook') }}">książkę</a></li>
+                                        </ul>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                            <div>                  
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="{{ url('fos_user_registration_register') }}"><span class="glyphicon glyphicon-user"></span>&nbsp Zarejestruj</a></li>
+                                    <li><a href="{{ url('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp Zaloguj</a></li>
+                                    <li><a id="navBarPin" href="{{ url('lib_nav_bar_homepage') }}"><span class="glyphicon glyphicon-pushpin"></span></a></li>
+                                </ul>
+                            </div>
+                        {% endblock %} 
+                    </div>
+                </nav>
+            {% endblock %}     
+
+            <div class="custom_container container">
+                {% block header %}
+                    <div class="custom_jumbotron jumbotron">
+                        <h1>Witaj w naszej bibliotece</h1>      
+                        <p>Możesz tutaj wypożyczać książki :)</p>      
+                    </div>
+                {% endblock %}
+
+                <div class="container panel-body">
+                {% block content %}{% endblock %}              
+                <div class="clearfix visible-lg"></div>
             </div>
-            {% block navbar_content %}  
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">Katalog</a></li>
-                        <li><a href="#">Kontakt</a></li>
-
-
-
-                    </ul>
-                </div>
-                <div>                  
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ url('fos_user_registration_register') }}"><span class="glyphicon glyphicon-user"></span>&nbsp Zarejestruj</a></li>
-                        <li><a href="{{ url('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp Zaloguj</a></li>
-                        <li><a id="navBarPin" href="{{ url('lib_nav_bar_homepage') }}"><span class="glyphicon glyphicon-pushpin"></span></a></li>
-                    </ul>
-                </div>
-            {% endblock %} 
         </div>
-    </nav>
-{% endblock %}     
 
-<div class="custom_container container">
-    {% block header %}
-        <div class="custom_jumbotron jumbotron">
-            <h1>Witaj w naszej bibliotece</h1>      
-            <p>Możesz tutaj wypożyczać książki :)</p>      
-        </div>
-    {% endblock %}
-
-    <div class="container">
-        {% block content %}{% endblock %}              
-        <div class="clearfix visible-lg"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/npm.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/NavBarBundle/pin.js') }}"></script>
-{% block javascripts %}{% endblock %}
-</body>
-</html>
+        <script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/npm.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/NavBarBundle/pin.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+    </body>
+    </html>

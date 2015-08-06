@@ -1,5 +1,88 @@
 {% extends "::base.html.twig" %}
 
 {% block content %}
-    dfthdfth 
+     <div class="col-sm-6">
+        <h1 class="page-header">Nowa książka</h1>
+        {{ form_start(form,{attr:{class:'form-horizontal'}}) }}
+
+        <div class="form-group">
+            {{ form_label(form.title,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.title,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.isbn,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.isbn,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.publishYear,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.publishYear,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.publishPlace,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.publishPlace,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.language,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.language,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.paperback,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.paperback,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.amount,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.amount,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.cover,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.cover) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.description,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.description,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.publisher,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.publisher,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.genres,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.genres,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.authors,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.authors,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                {{ form_row(form.save, {attr: {class: 'btn btn-default pull-right'}}) }}
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
