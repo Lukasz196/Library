@@ -8,3 +8,7 @@ librarianAddBook:
 librarianAddGenre:
     path:   /librarian/addGenre
     defaults:   {_controller: LibBookBundle:Book:addGenre}
+
+catalog:
+    path: /catalog
+    defaults: { _controller: LibBookBundle:Book:showCatalog }
