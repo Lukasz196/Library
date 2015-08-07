@@ -10,33 +10,34 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="Author")
  */
 class Author {
+
     /**
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-    
+
     /**
      * @ORM\Column(name="firstname", type="string", length=200, nullable=false)
      */
     private $firstname;
-    
+
     /**
      * @ORM\Column(name="secondname", type="string", length=200, nullable=true)
      */
     private $secondname;
-    
+
     /**
      * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
      */
     private $lastname;
-    
+
     /**
      * @ORM\ManyToMany(targetEntity="Book", mappedBy="authors")
      */
     private $books;
-    
+
     public function __construct() {
         $this->books = new ArrayCollection();
     }
@@ -46,8 +47,7 @@ class Author {
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -57,8 +57,7 @@ class Author {
      * @param string $firstname
      * @return Author
      */
-    public function setFirstname($firstname)
-    {
+    public function setFirstname($firstname) {
         $this->firstname = $firstname;
 
         return $this;
@@ -69,8 +68,7 @@ class Author {
      *
      * @return string 
      */
-    public function getFirstname()
-    {
+    public function getFirstname() {
         return $this->firstname;
     }
 
@@ -80,8 +78,7 @@ class Author {
      * @param string $secondname
      * @return Author
      */
-    public function setSecondname($secondname)
-    {
+    public function setSecondname($secondname) {
         $this->secondname = $secondname;
 
         return $this;
@@ -92,8 +89,7 @@ class Author {
      *
      * @return string 
      */
-    public function getSecondname()
-    {
+    public function getSecondname() {
         return $this->secondname;
     }
 
@@ -103,8 +99,7 @@ class Author {
      * @param string $lastname
      * @return Author
      */
-    public function setLastname($lastname)
-    {
+    public function setLastname($lastname) {
         $this->lastname = $lastname;
 
         return $this;
@@ -115,8 +110,7 @@ class Author {
      *
      * @return string 
      */
-    public function getLastname()
-    {
+    public function getLastname() {
         return $this->lastname;
     }
 
@@ -126,8 +120,7 @@ class Author {
      * @param \Lib\BookBundle\Entity\Book $books
      * @return Author
      */
-    public function addBook(\Lib\BookBundle\Entity\Book $books)
-    {
+    public function addBook(\Lib\BookBundle\Entity\Book $books) {
         $this->books[] = $books;
 
         return $this;
@@ -138,8 +131,7 @@ class Author {
      *
      * @param \Lib\BookBundle\Entity\Book $books
      */
-    public function removeBook(\Lib\BookBundle\Entity\Book $books)
-    {
+    public function removeBook(\Lib\BookBundle\Entity\Book $books) {
         $this->books->removeElement($books);
     }
 
@@ -148,8 +140,12 @@ class Author {
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getBooks()
-    {
+    public function getBooks() {
         return $this->books;
     }
+
+    public function __toString() {
+        return $this->firstname . " " . $this->secondname . " " . $this->lastname;
+    }
+
 }

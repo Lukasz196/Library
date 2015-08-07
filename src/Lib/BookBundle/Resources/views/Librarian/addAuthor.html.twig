@@ -1,0 +1,34 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <div class="col-sm-6">
+        <h1 class="page-header">Nowy autor</h1>
+        {{ form_start(form,{attr:{class:'form-horizontal'}}) }}
+
+        <div class="form-group">
+            {{ form_label(form.firstname,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.firstname,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.secondname,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.secondname,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.lastname,'', {label_attr: {class: 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.lastname,{attr:{class:'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                {{ form_row(form.save, { 'label': '', 'attr': {'class': 'btn btn-default pull-right'}}) }}
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

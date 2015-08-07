@@ -8,3 +8,15 @@ librarianAddBook:
 librarianAddGenre:
     path:   /librarian/addGenre
     defaults:   {_controller: LibBookBundle:Book:addGenre}
+    
+librarianAddPublisher:
+    path:   /librarian/addPublisher
+    defaults:   {_controller: LibBookBundle:Book:addPublisher} 
+    
+librarianAddAuthor:
+    path:   /librarian/addAuthor
+    defaults:   {_controller: LibBookBundle:Book:addAuthor}
+
+catalog:
+    path: /catalog
+    defaults: { _controller: LibBookBundle:Book:showCatalog }
