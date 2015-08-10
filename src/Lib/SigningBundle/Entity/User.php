@@ -110,7 +110,8 @@ class User extends BaseUser
      
      public function getBirthdate()
      {
-         return $this -> birthdate -> format('d/m/Y');
+         if ($this->birthdate == null) return $this -> birthdate;
+         else return $this -> birthdate -> format('d/m/Y');
      }
      
      public function setBirthdate($birthdate)

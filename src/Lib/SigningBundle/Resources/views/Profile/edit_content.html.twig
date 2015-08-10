@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class='row col-lg-10 col-lg-offset-1'>      
-        {{ form_start(form) }}
+        {{ form_start(form, {'attr': {'class': 'form_validate'}}) }}
             <div class="form-group">
                 {{ form_label(form.email, 'E-mail:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
                 <div class="col-sm-8">
