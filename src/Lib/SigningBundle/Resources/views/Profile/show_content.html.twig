@@ -1,0 +1,108 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/SigningBundle/custom.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-10 col-lg-offset-1">
+        <h1 class="show_h1 col-lg-12">
+            Dane konta
+        </h1>
+        
+        <div class="show_container col-lg-12">
+            <div class="show_row sbg2 bg col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="show_row_title col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <span class="show_row_title_span">
+                        Login
+                    </span>
+                </div>
+                <div class="show_row_container col-lg-9">
+                    {{ user.username }}
+                </div>
+            </div>
+            <div class="show_row sbg bg col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="show_row_title col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <span class="show_row_title_span">
+                        E-mail
+                    </span>
+                </div>
+                <div class="show_row_container col-lg-9">
+                    {{ user.email }}
+                </div>
+            </div>    
+            <div class="show_row sbg2 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="show_row_title col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <span class="show_row_title_span">
+                        Imię
+                    </span>
+                </div>
+                <div class="show_row_container col-lg-9">
+                    {{ user.firstname }}
+                </div>
+            </div>
+            <div class="show_row sbg col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="show_row_title col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <span class="show_row_title_span">
+                        Nazwisko
+                    </span>
+                </div>
+                <div class="show_row_container col-lg-9">
+                    {{ user.lastname }}
+                </div>
+            </div>
+            <div class="show_row sbg2 bg col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="show_row_title col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <span class="show_row_title_span">
+                        Nr tel.
+                    </span>
+                </div>
+                <div class="show_row_container col-lg-9">
+                    {{ user.phone }}
+                </div>
+            </div>
+            <div class="show_row sbg bg col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="show_row_title col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <span class="show_row_title_span">
+                        PESEL
+                    </span>
+                </div>
+                <div class="show_row_container col-lg-9">
+                    {{ user.pesel }}
+                </div>
+            </div>
+            <div class="show_row sbg2 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="show_row_title col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <span class="show_row_title_span">
+                        Data ur.
+                    </span>
+                </div>
+                <div class="show_row_container col-lg-9">
+                    {{ user.birthdate }}
+                </div>
+            </div>
+            
+            <div class="col-lg-12">
+                <a href="{{ url('fos_user_profile_edit') }}" class="show_btn btn btn-default" role="button">
+                   Edytuj
+                </a>    
+            </div>
+        </div>
+          
+        <h1 class="show_h1 col-lg-12">
+            Hasło
+        </h1>        
+        <div class="show_container col-lg-12">
+            <div class="col-lg-12">
+                <a href="{{ url('fos_user_change_password') }}" class="show_btn btn btn-default" role="button">
+                   Zmień hasło
+                </a>    
+            </div>
+        </div>
+                   
+                   
+        <h1 class="show_h1 col-lg-12">
+            Adres
+        </h1>
+    </div>
+{% endblock %}

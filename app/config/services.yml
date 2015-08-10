@@ -8,6 +8,10 @@ services:
         class: Lib\SigningBundle\Form\Type\RegistrationType
         tags:
             - { name: form.type, alias: user_registration }
+    app.form.profile:
+        class: Lib\SigningBundle\Form\Type\ProfileFormType
+        tags:
+            - { name: form.type, alias: user_profile }
     
 #    service_name:
 #        class: AppBundle\Directory\ClassName

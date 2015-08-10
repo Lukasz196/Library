@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/SigningBundle/custom.css') }}" />
+{% endblock %}
+
+{% block content %}   
+    <div class='row col-lg-8 col-lg-offset-2'> 
+        <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="custom_form_reg form-horizontal col-lg-12 fos_user_resetting_reset">
+            <h1 class='custom_h1_log'>
+                Przypomnienie hasła
+            </h1>
+
+            {{ form_widget(form) }}
+            
+            <div class="col-sm-9 form-group"> 
+                <input class="submit_login_btn btn btn-default" type="submit" id="_submit" name="_submit" value="{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}" />
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascripts %}        
+    <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/SigningBundle/validation.js') }}"></script>
+{% endblock %}

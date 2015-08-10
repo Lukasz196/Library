@@ -12,8 +12,7 @@
 	text-align: right;
 }
 
-.custom_h1_reg {
-	margin-left: 16.6667%;
+.custom_h1{
 	margin-bottom: 15px;
 }
 
@@ -23,8 +22,7 @@
 
 .custom_reg_info {
 	border-left: 1px solid gray;
-	margin-top: 150px;
-	margin-left: 0,83333%;	
+	margin-top: 150px;	
 }
 
 .custom_contrast{
@@ -62,9 +60,80 @@
 	list-style-type: none;	
 }
 
+.submit_login_btn {
+	float: right;
+	margin-top: 15px;
+	margin-right: -25px;
+}
+
+.remind_login {
+	color: black;
+}
+
+.remind_login:hover {
+	color: white;
+}
+
 #passstrength {
     color:red;
     font-family:verdana;
     font-size:10px;
     font-weight:bold;
+}
+
+.show_h1 {
+	border-bottom: 1px solid gray;
+}
+
+.bg {
+	background: #E7E6E6;
+}
+
+@media (max-width: 970px){
+    .sbg {
+    background: inherit;
+    }
+}
+
+@media (max-width: 970px){
+    .sbg2 {
+    background: #E7E6E6;
+    }
+}
+
+.show_container {
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+.show_row {
+	height: 70px;
+	line-height: 70px;
+	font-size: 18px;	
+}
+
+.show_row_title {
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	line-height: 70px;
+}
+
+.show_row_title_span {
+	color: #333;
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 22px;
+	padding: 10px 0px;
+	text-align: left;
+	white-space: normal;
+	vertical-align: baseline;
+}
+
+.show_btn {
+	display: block;
+	float: left;
+	margin-left: 10px;
 }

@@ -51,19 +51,14 @@
                                         </ul>
                                     </li>
 
+
+
                                 </ul>
                             </div>
                             {% if app.user %} {# użytkownik zalogowany #}
                                 <div>                  
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ app.user.username }} &nbsp<span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="{{ url('fos_user_profile_show') }}"><span class="glyphicon glyphicon-cog"></span>&nbsp Moje konto</a></li>
-                                                <li><a href="{{ url('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp Wyloguj</a></li>                                                                                                
-                                            </ul>
-                                        </li>
-                                        
+                                    <ul class="nav navbar-nav navbar-right">                            
+                                        <li><a href="{{ url('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp Wyloguj</a></li>
                                         <li><a id="navBarPin" href="{{ url('lib_nav_bar_homepage') }}"><span class="glyphicon glyphicon-pushpin"></span></a></li>
                                     </ul>
                                 </div>
@@ -71,13 +66,28 @@
                                 <div>                  
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a href="{{ url('fos_user_registration_register') }}"><span class="glyphicon glyphicon-user"></span>&nbsp Zarejestruj</a></li>
-                                        <li><a href="#login-box" class="login-window"><span class="glyphicon glyphicon-log-in"></span>&nbsp Zaloguj</a></li>
+                                        <li><a href="{{ url('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp Zaloguj</a></li>
                                         <li><a id="navBarPin" href="{{ url('lib_nav_bar_homepage') }}"><span class="glyphicon glyphicon-pushpin"></span></a></li>
                                     </ul>
                                 </div>
                             {% endif %}
                         {% endblock %} 
                     </div>
+<<<<<<< .merge_file_a11392
+                {% else %} {# użytkownik niezalogowany #}
+                    <div>                  
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{{ url('fos_user_registration_register') }}"><span class="glyphicon glyphicon-user"></span>&nbsp Zarejestruj</a></li>
+                            <li><a href="#login-box" class="login-window"><span class="glyphicon glyphicon-log-in"></span>&nbsp Zaloguj</a></li>
+                            <li><a id="navBarPin" href="{{ url('lib_nav_bar_homepage') }}"><span class="glyphicon glyphicon-pushpin"></span></a></li>
+                        </ul>
+                    </div>
+                {% endif %}
+            {% endblock %} 
+        </div>
+    </nav>
+{% endblock %}     
+=======
                 </nav>
             {% endblock %}  
             {% block body %}
@@ -88,13 +98,20 @@
                             <p>Możesz tutaj wypożyczać książki :)</p>      
                         </div>
                     {% endblock %}
+>>>>>>> .merge_file_a07340
 
                     <div class="container panel-body">
                     {% block content %}{% endblock %}      
                 </div>
             </div>
-        
-        
+        {% endblock %}   
+
+<<<<<<< .merge_file_a11392
+        <div class="container">
+            {% block content %}{% endblock %}      
+        </div>
+    </div>
+            
         <div id="login-box" class="login-popup">
             <div class="wrapper">
                 <div class="login-container">
@@ -127,16 +144,28 @@
                         <li></li>
                         <li></li>
                         <li></li>
-                        
                 </ul>
             </div>
-        </div>
+        </div>        
 {% endblock %}
 
 <script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/npm.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/NavBarBundle/pin.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('js/SigningBundle/login.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/SigningBundle/login-popup.js') }}"></script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>
+=======
+
+        <script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/NavBarBundle/pin.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+    </body>
+    </html>
+>>>>>>> .merge_file_a07340

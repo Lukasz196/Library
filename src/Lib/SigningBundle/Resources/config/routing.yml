@@ -15,9 +15,5 @@ fos_user_change_password:
     
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register    
-    
-register:
-    path:     /MYregister
-    defaults: { _controller: LibSigningBundle:Signing:register}    
+    prefix: /register  
      

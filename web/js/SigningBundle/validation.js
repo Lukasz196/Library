@@ -1,7 +1,6 @@
 $(document).ready(function ()
 {
-	 $("form").validate({
-          
+	 $("form").validate({          
 		showErrors: function(errorMap, errorList) {
 			  // Clean up any tooltips for valid elements
 			  $.each(this.validElements(), function (index, element) {

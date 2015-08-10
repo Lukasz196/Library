@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/SigningBundle/custom.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <div class='row col-lg-10 col-lg-offset-1'>      
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.email, 'E-mail:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                <div class="col-sm-8">
+                    {{ form_widget(form.email, {'attr': {
+                        'class': 'form-control',
+                        'data-msg-email': 'Niepoprawny formaty maila',
+                        'data-msg-required': 'Pole E-mail jest wymagane',
+                        'data-rule-email': 'true',
+                        'data-rule-required': 'true' 
+                    }}) }}
+                    {{form_errors(form.email)}}
+                </div>
+            </div>
+        {{ form_end(form) }}
+    </div> 
+{% endblock %}

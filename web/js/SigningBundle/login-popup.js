@@ -24,7 +24,7 @@ $(document).ready(function() {
 	});
 
 // When clicking on the button close or the mask layer the popup closed
-	$('#mask').live('click', function() { 
+	$(document).on("click", "#mask", function () {
 		$('#mask , .login-popup').fadeOut(300 , function() {
 			$('#mask').remove();  
 		}); 
