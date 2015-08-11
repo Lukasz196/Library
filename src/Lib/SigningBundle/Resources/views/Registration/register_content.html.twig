@@ -6,159 +6,165 @@
 {% endblock %}
 
 {% block content %}
-    <div class='row col-lg-10 col-lg-offset-1'>      
-        <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="form_validate custom_form_reg form-horizontal col-lg-6 fos_user_registration_register">
-            <h1 class='custom_h1 col-lg-offset-2'>
-                Rejestracja
-            </h1>
+    <div class='row col-lg-10 col-lg-offset-1'>  
+        {% if app.user %}
+            <span class="already_login ">
+               Jesteś już zalogowany 
+            </span>
+        {% else %}
+            <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="form_validate custom_form_reg form-horizontal col-lg-6 fos_user_registration_register">
+                <h1 class='custom_h1 col-lg-offset-2'>
+                    Rejestracja
+                </h1>
 
-            <div class="form-group">
-                {{ form_label(form.username, 'Login:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-                <div class="col-sm-8">
-                    {{ form_widget(form.username, {'attr': {
-                        'class': 'form-control',
-                        'data-msg-minlength': 'Login musi posiadać co najmniej 8 znaków',
-                        'data-msg-maxlength': 'Login może posiadać maksymalnie 25 znaków',
-                        'data-msg-required': 'Pole Login jest wymagane',
-                        'data-rule-minlength': '8',
-                        'data-rule-maxlength': '25',
-                        'data-rule-required': 'true' 
-                    }}) }}
-                    {{form_errors(form.username)}}
-                </div>                
-            </div>
-            <div class="form-group">
-                {{ form_label(form.plainPassword.first, 'Hasło:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-                <div class="col-sm-8">
-                    {{ form_widget(form.plainPassword.first, {'attr': {
-                        'class': 'form-control',
-                        'data-msg-minlength': 'Hasło musi posiadać co najmniej 8 znaków',
-                        'data-msg-maxlength': 'Hasło może posiadać maksymalnie 20 znaków',
-                        'data-msg-required': 'Pole Hasło jest wymagane',
-                        'data-rule-minlength': '8',
-                        'data-rule-maxlength': '20',
-                        'data-rule-required': 'true'                                  
-                    }}) }}
-                    <span id="passstrength"></span>
+                <div class="form-group">
+                    {{ form_label(form.username, 'Login:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.username, {'attr': {
+                            'class': 'form-control',
+                            'data-msg-minlength': 'Login musi posiadać co najmniej 8 znaków',
+                            'data-msg-maxlength': 'Login może posiadać maksymalnie 25 znaków',
+                            'data-msg-required': 'Pole Login jest wymagane',
+                            'data-rule-minlength': '8',
+                            'data-rule-maxlength': '25',
+                            'data-rule-required': 'true' 
+                        }}) }}
+                        {{form_errors(form.username)}}
+                    </div>                
                 </div>
-            </div>
-            <div class="form-group">
-                {{ form_label(form.plainPassword.second, 'Powtórz hasło:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-                <div class="col-sm-8">
-                    {{ form_widget(form.plainPassword.second, {'attr': {
-                        'class': 'form-control',
-                        'data-msg-minlength': 'Hasło musi posiadać co najmniej 8 znaków',
-                        'data-msg-maxlength': 'Hasło może posiadać maksymalnie 20 znaków',
-                        'data-msg-required': 'Pole Hasło jest wymagane',
-                        'data-msg-equalto': 'Hasłą muszą się zgadzać',
-                        'data-rule-minlength': '8',
-                        'data-rule-maxlength': '20',
-                        'data-rule-required': 'true',
-                        'data-rule-equalto': '#fos_user_registration_form_plainPassword_first'                     
-                    }}) }}
-                    <span id="passstrength"></span>
+                <div class="form-group">
+                    {{ form_label(form.plainPassword.first, 'Hasło:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.plainPassword.first, {'attr': {
+                            'class': 'form-control',
+                            'data-msg-minlength': 'Hasło musi posiadać co najmniej 8 znaków',
+                            'data-msg-maxlength': 'Hasło może posiadać maksymalnie 20 znaków',
+                            'data-msg-required': 'Pole Hasło jest wymagane',
+                            'data-rule-minlength': '8',
+                            'data-rule-maxlength': '20',
+                            'data-rule-required': 'true'                                  
+                        }}) }}
+                        <span id="passstrength"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                {{ form_label(form.firstname, 'Imię:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-                <div class="col-sm-8">
-                    {{ form_widget(form.firstname, {'attr': {
-                        'class': 'form-control',
-                        'data-msg-minlength': 'Imię musi posiadać co najmniej 3 znaki',
-                        'data-msg-maxlength': 'Imię może posiadać maksymalnie 20 znaków',
-                        'data-msg-required': 'Pole Imię jest wymagane',
-                        'data-rule-minlength': '3',
-                        'data-rule-maxlength': '20',
-                        'data-rule-required': 'true'                      
-                    }}) }}
+                <div class="form-group">
+                    {{ form_label(form.plainPassword.second, 'Powtórz hasło:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.plainPassword.second, {'attr': {
+                            'class': 'form-control',
+                            'data-msg-minlength': 'Hasło musi posiadać co najmniej 8 znaków',
+                            'data-msg-maxlength': 'Hasło może posiadać maksymalnie 20 znaków',
+                            'data-msg-required': 'Pole Hasło jest wymagane',
+                            'data-msg-equalto': 'Hasła muszą się zgadzać',
+                            'data-rule-minlength': '8',
+                            'data-rule-maxlength': '20',
+                            'data-rule-required': 'true',
+                            'data-rule-equalto': '#fos_user_registration_form_plainPassword_first'                     
+                        }}) }}
+                        <span id="passstrength"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                {{ form_label(form.lastname, 'Nazwisko:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-                <div class="col-sm-8">
-                    {{ form_widget(form.lastname, {'attr': {
-                        'class': 'form-control',
-                        'data-msg-minlength': 'Nazwisko musi posiadać co najmniej 3 znaki',
-                        'data-msg-maxlength': 'Nazwisko może posiadać maksymalnie 45 znaków',
-                        'data-msg-required': 'Pole Nazwisko jest wymagane',
-                        'data-rule-minlength': '3',
-                        'data-rule-maxlength': '45',
-                        'data-rule-required': 'true'                    
-                    }}) }}
+                <div class="form-group">
+                    {{ form_label(form.firstname, 'Imię:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.firstname, {'attr': {
+                            'class': 'form-control',
+                            'data-msg-minlength': 'Imię musi posiadać co najmniej 3 znaki',
+                            'data-msg-maxlength': 'Imię może posiadać maksymalnie 20 znaków',
+                            'data-msg-required': 'Pole Imię jest wymagane',
+                            'data-rule-minlength': '3',
+                            'data-rule-maxlength': '20',
+                            'data-rule-required': 'true'                      
+                        }}) }}
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                {{ form_label(form.phone, 'Nr tel:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-                <div class="col-sm-8">
-                    {{ form_widget(form.phone, {'attr': {
-                        'class': 'form-control',
-                        'data-msg-minlength': 'Numer telefonu musi posiadać co najmniej 9 znaków',
-                        'data-msg-maxlength': 'Numer telefonu może posiadać maksymalnie 20 znaków',
-                        'data-msg-required': 'Pole Numer telefonu jest wymagane',
-                        'data-rule-minlength': '9',
-                        'data-rule-maxlength': '20',
-                        'data-rule-required': 'true'  
-                    }}) }}
+                <div class="form-group">
+                    {{ form_label(form.lastname, 'Nazwisko:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.lastname, {'attr': {
+                            'class': 'form-control',
+                            'data-msg-minlength': 'Nazwisko musi posiadać co najmniej 3 znaki',
+                            'data-msg-maxlength': 'Nazwisko może posiadać maksymalnie 45 znaków',
+                            'data-msg-required': 'Pole Nazwisko jest wymagane',
+                            'data-rule-minlength': '3',
+                            'data-rule-maxlength': '45',
+                            'data-rule-required': 'true'                    
+                        }}) }}
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                {{ form_label(form.pesel, 'PESEL:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-                <div class="col-sm-8">
-                    {{ form_widget(form.pesel, {'attr': {
-                        'class': 'form-control',
-                        'data-msg-number': 'PESEL może zawierać wyłącznie cyfry',
-                        'data-msg-minlength': 'PESEL powinien posiadać 11 znaków',
-                        'data-msg-maxlength': 'PESEL powinien posiadać 11 znaków',
-                        'data-msg-required': 'Pole PESEL jest wymagane',
-                        'data-rule-minlength': '11',
-                        'data-rule-maxlength': '11',
-                        'data-rule-number': 'true',
-                        'data-rule-required': 'true'
-                    }}) }}
+                <div class="form-group">
+                    {{ form_label(form.phone, 'Nr tel:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.phone, {'attr': {
+                            'class': 'form-control',
+                            'data-msg-minlength': 'Numer telefonu musi posiadać co najmniej 9 znaków',
+                            'data-msg-maxlength': 'Numer telefonu może posiadać maksymalnie 20 znaków',
+                            'data-msg-required': 'Pole Numer telefonu jest wymagane',
+                            'data-rule-minlength': '9',
+                            'data-rule-maxlength': '20',
+                            'data-rule-required': 'true'  
+                        }}) }}
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                {{ form_label(form.birthdate, 'Data urodzenia:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-                <div class="col-sm-8">
-                    {{ form_widget(form.birthdate, {'attr': {
-                        'class': 'form-control',
-                        'data-msg-date': 'Niepoprawny formaty daty',
-                        'data-msg-required': 'Pole Data jest wymagane',
-                        'data-rule-date': 'true',
-                        'data-rule-required': 'true',
-                        'readonly': 'readonly'
-                    }}) }}
+                <div class="form-group">
+                    {{ form_label(form.pesel, 'PESEL:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.pesel, {'attr': {
+                            'class': 'form-control',
+                            'data-msg-number': 'PESEL może zawierać wyłącznie cyfry',
+                            'data-msg-minlength': 'PESEL powinien posiadać 11 znaków',
+                            'data-msg-maxlength': 'PESEL powinien posiadać 11 znaków',
+                            'data-msg-required': 'Pole PESEL jest wymagane',
+                            'data-rule-minlength': '11',
+                            'data-rule-maxlength': '11',
+                            'data-rule-number': 'true',
+                            'data-rule-required': 'true'
+                        }}) }}
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                {{ form_label(form.email, 'E-mail:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-                <div class="col-sm-8">
-                    {{ form_widget(form.email, {'attr': {
-                        'class': 'form-control',
-                        'data-msg-email': 'Niepoprawny formaty maila',
-                        'data-msg-required': 'Pole E-mail jest wymagane',
-                        'data-rule-email': 'true',
-                        'data-rule-required': 'true' 
-                    }}) }}
-                    {{form_errors(form.email)}}
+                <div class="form-group">
+                    {{ form_label(form.birthdate, 'Data urodzenia:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.birthdate, {'attr': {
+                            'class': 'form-control',
+                            'data-msg-date': 'Niepoprawny formaty daty',
+                            'data-msg-required': 'Pole Data jest wymagane',
+                            'data-rule-date': 'true',
+                            'data-rule-required': 'true',
+                            'readonly': 'readonly'
+                        }}) }}
+                    </div>
                 </div>
-            </div>
-                     
-            {{ form_widget(form._token) }}
-                           
-            <div>
-                <input id="fos_user_registration_form__token" type="submit" label='Zapisz się!' class='btn btn-default' value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
-            </div>           
-        </form>
+                <div class="form-group">
+                    {{ form_label(form.email, 'E-mail:', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.email, {'attr': {
+                            'class': 'form-control',
+                            'data-msg-email': 'Niepoprawny formaty maila',
+                            'data-msg-required': 'Pole E-mail jest wymagane',
+                            'data-rule-email': 'true',
+                            'data-rule-required': 'true' 
+                        }}) }}
+                        {{form_errors(form.email)}}
+                    </div>
+                </div>
 
-        <div class='custom_reg_info col-lg-6'>
-            <div class='custom_contrast'>
-                <h3 class='custom_h3_reg'>Dlaczego warto się zarejestrować?</h3>
-                Wypożyczaj książki</br>
-                Wystawiaj oceny<br/>
-                Dokonuj rezerwacji
+                {{ form_widget(form._token) }}
+
+                <div>
+                    <input id="fos_user_registration_form__token" type="submit" label='Zapisz się!' class='btn btn-default' value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+                </div>           
+            </form>
+
+            <div class='custom_reg_info col-lg-6'>
+                <div class='custom_contrast'>
+                    <h3 class='custom_h3_reg'>Dlaczego warto się zarejestrować?</h3>
+                    Wypożyczaj książki</br>
+                    Wystawiaj oceny<br/>
+                    Dokonuj rezerwacji
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>            
 {% endblock %}
 

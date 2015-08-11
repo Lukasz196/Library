@@ -17,8 +17,7 @@ class ProfileFormType extends AbstractType
     {
         $builder
             ->add('phone', 'text')
-            ->remove('username')
-            ->add('save', 'submit');
+            ->remove('username');
     }
     
     public function getParent()

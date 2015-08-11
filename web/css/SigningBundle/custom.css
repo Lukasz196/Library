@@ -137,3 +137,17 @@
 	float: left;
 	margin-left: 10px;
 }
+
+.already_login {
+	font-size: 2.5em;
+}
+
+.btn_padding  {
+	padding-left: 10px;
+}
+
+@media (max-width: 750px){
+    .btn_padding {
+    padding-left: 0px;
+    }
+}

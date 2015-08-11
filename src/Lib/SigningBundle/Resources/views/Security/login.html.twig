@@ -6,48 +6,54 @@
 
 {% block content %}   
     <div class='row col-lg-8 col-lg-offset-2'> 
-        <form action="{{ path("fos_user_security_check") }}" method="post" class="form_validate custom_form_reg form-horizontal col-lg-12">
-            <h1 class='custom_h1_log'>
-                Logowanie
-            </h1>
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        {% if app.user %}
+            <span class="already_login ">
+               Jesteś już zalogowany 
+            </span>
+        {% else %}
+            <form action="{{ path("fos_user_security_check") }}" method="post" class="form_validate custom_form_reg form-horizontal col-lg-12">
+                <h1 class='custom_h1_log'>
+                    Logowanie
+                </h1>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-            <div class="form-group">
-                <label class="col-sm-4 control-label" for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-                <div class="col-sm-5">
-                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" 
-                            data-msg-maxlength="Login zbyt długi" 
-                            data-msg-minlength="Login zbyt krótki" 
-                            data-msg-required="Pole Login jest wymagane" 
-                            data-rule-maxlength="25" 
-                            data-rule-minlength="8" 
-                            data-rule-required="true" />
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                    <div class="col-sm-5">
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" 
+                                data-msg-maxlength="Login zbyt długi" 
+                                data-msg-minlength="Login zbyt krótki" 
+                                data-msg-required="Pole Login jest wymagane" 
+                                data-rule-maxlength="25" 
+                                data-rule-minlength="8" 
+                                data-rule-required="true" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">                
-                <label class="col-sm-4 control-label" for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-                <div class="col-sm-5">
-                    <input type="password" id="password" name="_password" required="required" class="form-control"
-                           data-msg-maxlength="Hasło zbyt długie" 
-                           data-msg-minlength="Hasło zbyt krótkie" 
-                           data-msg-required="Pole Hasło jest wymagane" 
-                           data-rule-maxlength="25" 
-                           data-rule-minlength="8" 
-                           data-rule-required="true" />
+                <div class="form-group">                
+                    <label class="col-sm-4 control-label" for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                    <div class="col-sm-5">
+                        <input type="password" id="password" name="_password" required="required" class="form-control"
+                               data-msg-maxlength="Hasło zbyt długie" 
+                               data-msg-minlength="Hasło zbyt krótkie" 
+                               data-msg-required="Pole Hasło jest wymagane" 
+                               data-rule-maxlength="25" 
+                               data-rule-minlength="8" 
+                               data-rule-required="true" />
+                    </div>
+                </div>            
+
+                <div class=" col-sm-5 col-sm-offset-4"> 
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                    <a class="remind_login login-remind" href="{{ path('fos_user_resetting_request') }}">Przypomnij</a>
                 </div>
-            </div>            
-            
-            <div class=" col-sm-5 col-sm-offset-4"> 
-                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-                <a class="remind_login login-remind" href="{{ path('fos_user_resetting_request') }}">Przypomnij</a>
-            </div>
-            
-            <div class="col-sm-9 form-group"> 
-                <input class="submit_login_btn btn btn-default" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-            </div>
-        </form>
+
+                <div class="col-sm-9 form-group"> 
+                    <input class="submit_login_btn btn btn-default" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                </div>
+            </form>
+        {% endif %}
     </div>
 {% endblock %}
 

@@ -110,6 +110,7 @@
                                     <label class="login-checkbox" for="remember_me">&nbsp {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
                                     <a class="login-remind" href="{{ path('fos_user_resetting_request') }}">Przypomnij</a>
                                 </div>
+                                <input type="hidden" id="target" name="_target_path" value="" />
                                 <div class="login-submit">
                                     <input type="submit" id="_submit" class="login-button" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />                        
                                 </div>

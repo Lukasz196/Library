@@ -3,6 +3,10 @@ $(document).ready(function() {
 		
 				//Getting the variable's value from a link 
 		var loginBox = $(this).attr('href');
+	
+		//var str = window.location.href;
+	
+		document.getElementById("target").value = window.location.href;
 
 		//Fade in the Popup
 		$(loginBox).fadeIn(300);
